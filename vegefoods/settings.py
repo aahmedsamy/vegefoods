@@ -123,7 +123,7 @@ USE_TZ = True
 
 STATIC_URL = '/static_/'
 MEDIA_URL = '/media_/'
-# STATIC_ROOT = os.path.join(BASE_DIR, "static_/")
+STATIC_ROOT = os.path.join(BASE_DIR, "static_/")
 MEDIA_ROOT = os.path.join(BASE_DIR, "media_/")
 # AUTH USER MODEL
 AUTH_USER_MODEL = "users.User"

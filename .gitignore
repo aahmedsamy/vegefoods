@@ -100,3 +100,5 @@ helpers/status.py
 special_offer_venv
 backend/*
 venv
+media_/
+static_/

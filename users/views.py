@@ -37,7 +37,7 @@ class UserViewSet(viewsets.GenericViewSet, mixins.DestroyModelMixin, mixins.Crea
     def get_serializer_class(self):
         if self.action in ['login']:
             return UserLoginSerializer
-        elif self.action in ['update', 'create']:
+        elif self.action in ['update']:
             return UserUpdateSerializer
         elif self.action in ['create']:
             return UserCreateSerializer

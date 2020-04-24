@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'users'
 ]
 
 MIDDLEWARE = [
@@ -119,3 +120,6 @@ USE_TZ = True
 
 STATIC_URL = '/static_/'
 MEDIA_URL = '/media_/'
+
+# AUTH USER MODEL
+AUTH_USER_MODEL = "users.User"

@@ -33,3 +33,32 @@ class IsPhoneNumber(StringBaseValidator):
     def check(self, value):
         if not value.isnumeric():
             return True
+
+
+@deconstructible
+class PasswordValidation(StringBaseValidator):
+    special_chars = "./!@#$%&;?"
+    message = ['Please Enter valid password',
+               '1) password length must be from 8 to 128 letters.',
+               '2) password must contains lower case letters [a-z].',
+               '3) password must contains upper case letters [A-Z].',
+               '4) password must contains numbers. [0-9]',
+               '5) password must contains special characters [. / ! @ # $ % & ; ?]'
+               ]
+
+    code = "valid_password"
+
+    def check(self, value):
+        r_1 = r_2 = r_3 = r_4 = r_5 = True
+        if 8 <= len(value) <= 128:
+            r_1 = False
+        for char in value:
+            if 'a' <= char <= 'z':
+                r_2 = False
+            elif 'A' <= char <= 'Z':
+                r_3 = False
+            elif '0' <= char <= '9':
+                r_4 = False
+            elif char in self.special_chars:
+                r_5 = False
+        return r_1 or r_2 or r_3 or r_4 or r_5

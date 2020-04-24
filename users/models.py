@@ -6,6 +6,7 @@ from helpers.validators import IsPhoneNumber
 
 
 class User(AbstractUser):
+    image = models.ImageField(_("Profile image"), upload_to="profiles/images", null=True, blank=True)
     email = models.EmailField(
         _('Email'),
         max_length=150,

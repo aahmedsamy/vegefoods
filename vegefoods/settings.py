@@ -11,7 +11,7 @@ https://docs.djangoproject.com/en/2.2/ref/settings/
 """
 
 import os
-from dotenv import load_dotenv
+from environs import Env
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -19,17 +19,19 @@ STATIC_DIR = os.path.join(BASE_DIR, 'static_/')
 MEDIA_DIR = os.path.join(BASE_DIR, 'media_/')
 
 # load .env
-load_dotenv(os.path.join(BASE_DIR, '.env'))
+env = Env()
+env.read_env()
+# Env.read_env(os.path.join(BASE_DIR, '.env'), recurse=False)
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/2.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = os.getenv('SECRET_KEY')
+SECRET_KEY = env.str('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = bool(os.getenv('DEBUG'))
-ALLOWED_HOSTS = list(os.getenv('ALLOWED_HOSTS'))
+DEBUG = env.bool('DEBUG')
 
+ALLOWED_HOSTS = env.list('ALLOWED_HOSTS')
 # Application definition
 
 INSTALLED_APPS = [

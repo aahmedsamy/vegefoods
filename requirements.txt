@@ -1,4 +1,6 @@
 Django==2.2.12
+environs==7.4.0
+marshmallow==3.5.1
 python-dotenv==0.13.0
 pytz==2019.3
 sqlparse==0.3.1

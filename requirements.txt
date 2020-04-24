@@ -1,6 +1,11 @@
 Django==2.2.12
+django-filter==2.2.0
+djangorestframework==3.11.0
+djangorestframework-simplejwt==4.4.0
 environs==7.4.0
 marshmallow==3.5.1
+Pillow==7.1.1
+PyJWT==1.7.1
 python-dotenv==0.13.0
 pytz==2019.3
 sqlparse==0.3.1
